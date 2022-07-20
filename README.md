@@ -39,7 +39,7 @@ Ao final, o modelo gerado foi salvo no sistema HDFS do cluster. O arquivo pode s
 
 2. **Etapa de ETL**
 - Copie os arquivos do corpus PT7 Web, [```labels-pt7-raw.scala```](labels-pt7-raw.scala) e [```etl-pt7.scala```](etl-pt7.scala) para o diretório ```user_data```.
-- Copie os arquivos do corpus para o HDFS. 
+- Em seguida, copie os arquivos do corpus para o HDFS. 
 ```
 hadoop fs -put /user_data/pt7-raw hdfs://master:8020/bigdata/
 ```
@@ -62,5 +62,5 @@ docker exec -it master spark-shell --master spark://master:7077
 ```
 :load /user_data/pt7_random_forest.scala
 ```
-- As métricas serão salvas no ```user_data``` no arquivo 
+- Após a execução, as métricas serão salvas no ```user_data``` no arquivo 
  ```metrics.txt```, e o modelo no HDFS no caminho  ```hdfs://master:8020/bigdata/model_random_forest```.
